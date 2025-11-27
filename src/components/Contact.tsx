@@ -9,20 +9,20 @@ import { useInView } from "react-intersection-observer";
 const contactInfo = [
   {
     icon: Phone,
-    title: "Téléphone",
-    content: "+33 1 23 45 67 89",
-    link: "tel:+33123456789",
+    title: "Téléphones",
+    content: "+237 680 279 567 / 590",
+    link: "tel:+237680279567",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "contact@konta-btp.fr",
-    link: "mailto:contact@konta-btp.fr",
+    content: "horebgroupsarl@gmail.com",
+    link: "mailto:horebgroupsarl@gmail.com",
   },
   {
     icon: MapPin,
-    title: "Adresse",
-    content: "123 Rue de la Construction, 75001 Paris",
+    title: "Siège Social",
+    content: "Mbalngong, Yaoundé, Cameroun",
     link: "#",
   },
 ];
@@ -43,10 +43,10 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-primary font-semibold mb-3 tracking-wider uppercase text-sm">
-            Contactez-nous
+            Contactez-Nous
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Démarrez Votre Projet Aujourd'hui
+            C'est Où Vous Devez Être
           </h2>
           <motion.div
             className="w-24 h-1 bg-primary mx-auto"
@@ -146,9 +146,9 @@ const Contact = () => {
                 Parlons de Votre Projet
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Notre équipe d'experts est prête à vous accompagner dans tous vos projets
-                de construction et de rénovation. N'hésitez pas à nous contacter pour un
-                devis gratuit et personnalisé.
+                Notre équipe dynamique composée de techniciens, ingénieurs et logisticiens 
+                est prête à réaliser vos projets avec rigueur, innovation et confiance. 
+                Contactez-nous pour un devis personnalisé.
               </p>
             </div>
 

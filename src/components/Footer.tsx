@@ -9,10 +9,8 @@ const Footer = () => {
   });
 
   const socialLinks = [
-    { icon: Facebook, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Linkedin, href: "#" },
-    { icon: Twitter, href: "#" },
+    { icon: Facebook, href: "https://web.facebook.com/profile.php?id=61560264476890" },
+    { icon: Instagram, href: "https://www.instagram.com/horebgroupsarl" },
   ];
 
   return (
@@ -32,11 +30,12 @@ const Footer = () => {
               transition={{ duration: 0.2 }}
             >
               <Building2 className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold">Konta</span>
+              <span className="text-2xl font-bold">Horeb Group</span>
             </motion.div>
             <p className="text-white/70 mb-6 leading-relaxed max-w-md">
-              Entreprise de BTP de confiance avec plus de 25 ans d'expérience.
-              Nous transformons vos projets en réalité avec expertise et passion.
+              Entreprise camerounaise multidisciplinaire offrant des solutions complètes en BTP, 
+              services généraux, import/export, mobilier/immobilier, électricité et informatique. 
+              C'est où vous devez être.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => {
@@ -92,9 +91,9 @@ const Footer = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-lg font-bold mb-4">Nos Services</h3>
+            <h3 className="text-lg font-bold mb-4">Nos Domaines</h3>
             <ul className="space-y-2">
-              {["Gros Œuvre", "Rénovation", "Finitions", "Maintenance"].map((item, index) => (
+              {["BTP & Construction", "Services Généraux", "Import/Export", "Mobilier/Immobilier", "Électricité & IT"].map((item, index) => (
                 <motion.li
                   key={item}
                   initial={{ opacity: 0, x: -10 }}
@@ -123,7 +122,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              © 2024 Konta Construction. Tous droits réservés.
+              © 2024 Horeb Group Sarl. Tous droits réservés. RC/YAO/2024/B/1010
             </p>
             <div className="flex gap-6 text-sm">
               <motion.a

@@ -40,10 +40,10 @@ const StatItem = ({
 
 const Stats = () => {
   const stats = [
-    { number: 25, suffix: "+", label: "Années d'Expérience" },
-    { number: 300, suffix: "+", label: "Projets Réalisés" },
-    { number: 150, suffix: "+", label: "Clients Satisfaits" },
-    { number: 50, suffix: "+", label: "Experts Qualifiés" },
+    { number: 2024, suffix: "", label: "Année de Création" },
+    { number: 50, suffix: "+", label: "Projets Réalisés" },
+    { number: 15, suffix: "+", label: "Clients Satisfaits" },
+    { number: 6, suffix: "", label: "Domaines d'Activité" },
   ];
 
   return (
