@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Building2, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoHoreb from "@/assets/logo-horeb.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,12 +29,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <Building2 className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-white">Horeb Group</span>
+            <img src={logoHoreb} alt="Horeb Group" className="h-12 w-auto" />
           </motion.div>
 
           {/* Desktop Menu */}
