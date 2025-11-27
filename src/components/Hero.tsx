@@ -215,7 +215,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base transition-all relative overflow-hidden group"
+                className="w-full sm:w-auto border-2 border-white bg-transparent text-white hover:bg-white hover:text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base transition-all relative overflow-hidden group backdrop-blur-sm"
               >
                 <motion.span
                   className="absolute inset-0 bg-white"
