@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { PaintBucket, CheckCircle, ArrowRight, Phone, Globe, Package, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroImage from "@/assets/services-hero.jpg";
+import realisation1 from "@/assets/realisation-import-1.jpg";
+import realisation2 from "@/assets/realisation-import-2.jpg";
 
 const ImportExport = () => {
   const services = [
@@ -40,10 +43,20 @@ const ImportExport = () => {
       <Navbar />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-navy-dark via-navy to-navy-dark overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,119,0,0.3),transparent_50%)]" />
-          </div>
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            <img
+              src={heroImage}
+              alt="Services Horeb Group"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/90 to-navy-dark/85" />
+          </motion.div>
           
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
@@ -72,6 +85,56 @@ const ImportExport = () => {
                 en vous offrant un accès privilégié aux marchés internationaux.
               </p>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Gallery Section - Nos Opérations */}
+        <section className="py-20 bg-gradient-to-br from-background to-muted/30">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+                Nos Opérations
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Infrastructure logistique et opérations import/export
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                { img: realisation1, title: "Opérations Portuaires", desc: "Gestion de containers et cargo international" },
+                { img: realisation2, title: "Stockage & Distribution", desc: "Entrepôts modernes et gestion logistique" },
+              ].map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ y: -10 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative overflow-hidden rounded-lg shadow-lg">
+                    <img
+                      src={project.img}
+                      alt={project.title}
+                      className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-white font-bold text-xl mb-2">{project.title}</h3>
+                        <p className="text-white/80">{project.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
