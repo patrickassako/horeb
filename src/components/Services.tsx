@@ -6,27 +6,27 @@ import { useInView } from "react-intersection-observer";
 const services = [
   {
     icon: Building2,
-    title: "Gros Œuvre",
+    title: "BTP & Construction",
     description:
-      "Construction de structures solides et durables. Fondations, maçonnerie et charpente de qualité professionnelle.",
+      "Construction de bâtiments résidentiels, commerciaux et hôteliers. Rénovation et aménagements extérieurs de qualité professionnelle.",
   },
   {
     icon: Hammer,
-    title: "Rénovation",
+    title: "Services Généraux",
     description:
-      "Rénovation complète de bâtiments résidentiels et commerciaux. Modernisation et mise aux normes.",
+      "Fournitures de bureau et équipements, transport et logistique, entretien et maintenance pour vos besoins quotidiens.",
   },
   {
     icon: PaintBucket,
-    title: "Finitions",
+    title: "Import/Export",
     description:
-      "Travaux de finition soignés : peinture, revêtements, et décoration pour sublimer vos espaces.",
+      "Importation et exportation de produits divers, équipements, consommables et matières premières avec partenaires internationaux.",
   },
   {
     icon: Wrench,
-    title: "Maintenance",
+    title: "Électricité & Informatique",
     description:
-      "Services de maintenance et réparation pour garantir la pérennité de vos installations.",
+      "Installation électrique, maintenance de réseaux, vente de matériel informatique, création de sites web et applications.",
   },
 ];
 
@@ -69,10 +69,10 @@ const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-primary font-semibold mb-3 tracking-wider uppercase text-sm">
-            Nos Services
+            Nos Domaines d'Expertise
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Le Meilleur Service Pour Vous
+            Solutions Multidisciplinaires
           </h2>
           <motion.div
             className="w-24 h-1 bg-primary mx-auto"

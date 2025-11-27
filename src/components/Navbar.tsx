@@ -33,7 +33,7 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
           >
             <Building2 className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-white">Konta</span>
+            <span className="text-2xl font-bold text-white">Horeb Group</span>
           </motion.div>
 
           {/* Desktop Menu */}

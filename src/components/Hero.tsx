@@ -56,23 +56,24 @@ const Hero = () => {
             variants={itemVariants}
             className="text-primary font-semibold mb-4 tracking-wider uppercase text-sm"
           >
-            Excellence en Construction
+            C'est où vous devez être
           </motion.p>
           <motion.h1
             variants={itemVariants}
             className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Construction de Qualité
+            Horeb Group Sarl
             <span className="block text-primary mt-2">
-              Impressions Durables
+              Solutions Multidisciplinaires
             </span>
           </motion.h1>
           <motion.p
             variants={itemVariants}
             className="text-lg text-white/90 mb-8 max-w-2xl leading-relaxed"
           >
-            Nous sommes une entreprise de BTP reconnue pour notre expertise et notre engagement
-            envers l'excellence. Transformons ensemble vos projets en réalité.
+            Entreprise camerounaise spécialisée dans le BTP, les services généraux, l'import/export, 
+            le mobilier/immobilier, l'électricité et l'informatique. Nous offrons des prestations 
+            sur mesure avec rigueur, innovation et confiance.
           </motion.p>
           <motion.div
             variants={itemVariants}

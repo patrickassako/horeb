@@ -1,26 +1,26 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import project1 from "@/assets/team-group.jpg";
+import project2 from "@/assets/team-1.jpg";
+import project3 from "@/assets/team-2.jpg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const projects = [
   {
-    title: "Complexe Commercial",
-    category: "Construction Neuve",
+    title: "Hôtel Horizon - Kribi",
+    category: "Suivi Technique de Chantier",
     image: project1,
   },
   {
-    title: "Résidence Moderne",
-    category: "Résidentiel",
+    title: "Fournitures & Équipements",
+    category: "Services Généraux",
     image: project2,
   },
   {
-    title: "Rénovation Haut de Gamme",
-    category: "Rénovation",
+    title: "Projets en Cours",
+    category: "BTP & Rénovation",
     image: project3,
   },
 ];
@@ -64,10 +64,10 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-primary font-semibold mb-3 tracking-wider uppercase text-sm">
-              Nos Réalisations
+              Nos Réalisations & Références
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Construire Vos Projets de Rêve
+              Des Projets à Notre Image
             </h2>
           </motion.div>
           <motion.div
