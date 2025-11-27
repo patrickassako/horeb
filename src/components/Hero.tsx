@@ -91,16 +91,16 @@ const Hero = () => {
 
       {/* Animated Bubbles - Continuous */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
-        {[...Array(15)].map((_, i) => {
-          const size = 20 + Math.random() * 60;
-          const delay = Math.random() * 5;
-          const duration = 8 + Math.random() * 6;
-          const xPos = Math.random() * 100;
+        {[...Array(25)].map((_, i) => {
+          const size = 30 + Math.random() * 80;
+          const delay = (i * 0.4) % 8;
+          const duration = 10 + Math.random() * 8;
+          const xPos = 5 + Math.random() * 90;
           
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20"
+              className="absolute rounded-full bg-primary/20 backdrop-blur-sm border-2 border-primary/30 shadow-lg"
               style={{
                 width: size,
                 height: size,
@@ -108,16 +108,45 @@ const Hero = () => {
                 bottom: -100,
               }}
               animate={{
-                y: [0, -window.innerHeight - 100],
-                x: [0, Math.sin(i) * 50, 0],
-                opacity: [0, 0.6, 0],
-                scale: [0.8, 1, 0.8],
+                y: [0, -window.innerHeight - 200],
+                x: [0, Math.sin(i * 0.5) * 80, Math.cos(i * 0.3) * 60, 0],
+                opacity: [0, 0.8, 0.6, 0],
+                scale: [0.5, 1.2, 1, 0.8],
               }}
               transition={{
                 duration,
                 repeat: Infinity,
                 delay,
-                ease: "linear",
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+        
+        {/* Floating particles */}
+        {[...Array(30)].map((_, i) => {
+          const delay = Math.random() * 5;
+          const duration = 4 + Math.random() * 4;
+          
+          return (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute w-2 h-2 bg-primary/40 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -40, -20, -60, 0],
+                x: [0, 20, -20, 10, 0],
+                opacity: [0.3, 0.8, 0.5, 0.9, 0.3],
+                scale: [1, 1.8, 1.2, 2, 1],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut",
               }}
             />
           );
