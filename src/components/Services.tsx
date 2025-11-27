@@ -2,6 +2,9 @@ import { Building2, Hammer, PaintBucket, Wrench } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -9,24 +12,28 @@ const services = [
     title: "BTP & Construction",
     description:
       "Construction de bâtiments résidentiels, commerciaux et hôteliers. Rénovation et aménagements extérieurs de qualité professionnelle.",
+    link: "/services/btp",
   },
   {
     icon: Hammer,
     title: "Services Généraux",
     description:
       "Fournitures de bureau et équipements, transport et logistique, entretien et maintenance pour vos besoins quotidiens.",
+    link: "/services/services-generaux",
   },
   {
     icon: PaintBucket,
     title: "Import/Export",
     description:
       "Importation et exportation de produits divers, équipements, consommables et matières premières avec partenaires internationaux.",
+    link: "/services/import-export",
   },
   {
     icon: Wrench,
     title: "Électricité & Informatique",
     description:
       "Installation électrique, maintenance de réseaux, vente de matériel informatique, création de sites web et applications.",
+    link: "/services/electricite-informatique",
   },
 ];
 
@@ -94,21 +101,30 @@ const Services = () => {
             const Icon = service.icon;
             return (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="p-8 hover:shadow-strong transition-all duration-300 hover:-translate-y-2 border-border bg-card group cursor-pointer h-full">
-                  <motion.div
-                    className="mb-6 inline-block p-4 bg-primary/10 rounded-lg group-hover:bg-primary transition-colors"
-                    whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold mb-3 text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </Card>
+                <Link to={service.link}>
+                  <Card className="p-8 hover:shadow-strong transition-all duration-300 hover:-translate-y-2 border-border bg-card group cursor-pointer h-full flex flex-col">
+                    <motion.div
+                      className="mb-6 inline-block p-4 bg-primary/10 rounded-lg group-hover:bg-primary transition-colors"
+                      whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                    </motion.div>
+                    <h3 className="text-xl font-bold mb-3 text-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                      {service.description}
+                    </p>
+                    <Button
+                      variant="ghost"
+                      className="w-full group-hover:bg-primary/10 transition-colors mt-auto"
+                    >
+                      En savoir plus
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Card>
+                </Link>
               </motion.div>
             );
           })}
