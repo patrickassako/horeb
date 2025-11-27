@@ -9,44 +9,45 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 210 45% 24%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 210 45% 24%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 210 45% 24%;
 
-    --primary: 14 100% 57%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 210 45% 24%;
+    --primary-foreground: 35 35% 90%;
 
-    --secondary: 215 30% 15%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 35 35% 70%;
+    --secondary-foreground: 210 45% 24%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 35 35% 95%;
+    --muted-foreground: 210 25% 45%;
 
-    --accent: 14 100% 57%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 35% 70%;
+    --accent-foreground: 210 45% 24%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 214 25% 90%;
-    --input: 214 25% 90%;
-    --ring: 14 100% 57%;
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 210 45% 24%;
 
     --radius: 0.5rem;
     
-    --navy: 215 30% 15%;
-    --navy-dark: 215 35% 10%;
-    --orange-light: 14 100% 65%;
+    --navy: 210 45% 24%;
+    --navy-dark: 210 50% 18%;
+    --beige: 35 35% 70%;
+    --beige-light: 35 35% 85%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--orange-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--beige)) 100%);
     --gradient-overlay: linear-gradient(180deg, hsl(var(--navy-dark) / 0.95) 0%, hsl(var(--navy) / 0.90) 100%);
     
-    --shadow-strong: 0 20px 60px -15px hsl(var(--primary) / 0.4);
-    --shadow-card: 0 10px 40px -10px hsl(215 30% 15% / 0.1);
+    --shadow-strong: 0 20px 60px -15px hsl(var(--navy) / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(210 45% 24% / 0.1);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -68,33 +69,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 215 30% 15%;
-    --foreground: 0 0% 98%;
+    --background: 210 45% 10%;
+    --foreground: 35 35% 90%;
 
-    --card: 215 35% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 210 45% 12%;
+    --card-foreground: 35 35% 90%;
 
-    --popover: 215 35% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 210 45% 12%;
+    --popover-foreground: 35 35% 90%;
 
-    --primary: 14 100% 57%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 35 35% 70%;
+    --primary-foreground: 210 45% 24%;
 
-    --secondary: 215 25% 20%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 45% 24%;
+    --secondary-foreground: 35 35% 90%;
 
-    --muted: 215 25% 20%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 210 35% 20%;
+    --muted-foreground: 35 25% 65%;
 
-    --accent: 14 100% 57%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 35% 70%;
+    --accent-foreground: 210 45% 24%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 25% 25%;
-    --input: 215 25% 25%;
-    --ring: 14 100% 57%;
+    --border: 210 35% 20%;
+    --input: 210 35% 20%;
+    --ring: 35 35% 70%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
