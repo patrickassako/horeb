@@ -1,12 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-background.jpg";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { useEffect } from "react";
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  // Mouse movement tracking
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const springConfig = { damping: 25, stiffness: 150 };
+  const x = useSpring(useTransform(mouseX, [0, window.innerWidth], [-20, 20]), springConfig);
+  const rotateX = useSpring(useTransform(mouseY, [0, window.innerHeight], [5, -5]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [0, window.innerWidth], [-5, 5]), springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,21 +93,21 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image with Parallax Effect */}
+      {/* Background Image with Parallax and Mouse Effect */}
       <motion.div
         className="absolute inset-0 z-0"
-        style={{ y }}
+        style={{ y, x, rotateX, rotateY, transformPerspective: 1200 }}
       >
         <motion.img
           src={heroImage}
           alt="Équipe Horeb Group sur le terrain"
           className="w-full h-full object-cover"
-          initial={{ scale: 1.2, filter: "brightness(0.4)" }}
-          animate={{ scale: 1, filter: "brightness(0.5)" }}
+          initial={{ scale: 1.2, filter: "brightness(0.5)" }}
+          animate={{ scale: 1, filter: "brightness(0.75)" }}
           transition={{ duration: 2, ease: "easeOut" }}
         />
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/85 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-navy-dark/70 via-navy/60 to-transparent"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -165,23 +185,17 @@ const Hero = () => {
           
           <motion.p
             variants={textVariants}
-            className="text-lg text-white/90 mb-8 max-w-2xl leading-relaxed"
+            className="text-xl text-white/95 mb-8 max-w-2xl leading-relaxed font-medium"
           >
-            {[
-              "De la conception à la réalisation, nous transformons vos projets les plus ambitieux en réalité.",
-              "Expert en BTP, électricité, informatique et services généraux au Cameroun.",
-              "Qualité irréprochable, délais respectés, satisfaction garantie. Faites confiance à l'excellence."
-            ].map((line, i) => (
-              <motion.span
-                key={i}
-                className="block"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 + i * 0.2 }}
-              >
-                {line}
-              </motion.span>
-            ))}
+            <motion.span
+              className="block"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              Expert camerounais en BTP, électricité et services généraux. 
+              Transformons ensemble vos projets en succès garantis.
+            </motion.span>
           </motion.p>
           
           <motion.div
