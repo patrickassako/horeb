@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Phone, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoHoreb from "@/assets/logo-horeb.png";
+import logoBeige from "@/assets/logo-beige-mono.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <img src={logoHoreb} alt="Horeb Group" className="h-12 w-auto" />
+            <img src={logoBeige} alt="Horeb Group" className="h-12 w-auto" />
           </motion.div>
 
           {/* Desktop Menu */}

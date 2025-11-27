@@ -1,6 +1,7 @@
-import { Building2, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import logoBeige from "@/assets/logo-beige-mono.png";
 
 const Footer = () => {
   const { ref, inView } = useInView({
@@ -25,12 +26,11 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="flex items-center gap-2 mb-4"
+              className="flex items-center gap-3 mb-4"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <Building2 className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold">Horeb Group</span>
+              <img src={logoBeige} alt="Horeb Group" className="h-10 w-auto" />
             </motion.div>
             <p className="text-white/70 mb-6 leading-relaxed max-w-md">
               Entreprise camerounaise multidisciplinaire offrant des solutions complètes en BTP, 
