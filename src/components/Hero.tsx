@@ -139,7 +139,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              C'est où vous devez être
+              Votre Partenaire de Confiance
             </motion.span>
           </motion.p>
           
@@ -159,7 +159,7 @@ const Hero = () => {
               variants={subtitleVariants}
               whileHover={{ scale: 1.02, x: 10 }}
             >
-              Solutions Multidisciplinaires
+              Bâtissons Ensemble Votre Avenir
             </motion.span>
           </motion.h1>
           
@@ -168,9 +168,9 @@ const Hero = () => {
             className="text-lg text-white/90 mb-8 max-w-2xl leading-relaxed"
           >
             {[
-              "Entreprise camerounaise spécialisée dans le BTP, les services généraux, l'import/export,",
-              "le mobilier/immobilier, l'électricité et l'informatique. Nous offrons des prestations",
-              "sur mesure avec rigueur, innovation et confiance."
+              "De la conception à la réalisation, nous transformons vos projets les plus ambitieux en réalité.",
+              "Expert en BTP, électricité, informatique et services généraux au Cameroun.",
+              "Qualité irréprochable, délais respectés, satisfaction garantie. Faites confiance à l'excellence."
             ].map((line, i) => (
               <motion.span
                 key={i}
@@ -200,7 +200,7 @@ const Hero = () => {
                   transition={{ duration: 0.5 }}
                 />
                 <span className="relative z-10 flex items-center">
-                  Nos Services
+                  Découvrez Nos Expertises
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </span>
               </Button>
@@ -220,7 +220,7 @@ const Hero = () => {
                 />
                 <span className="relative z-10 flex items-center">
                   <Phone className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-                  Contactez-nous
+                  Devis Gratuit
                 </span>
               </Button>
             </motion.div>
