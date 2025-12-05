@@ -69,13 +69,15 @@ const Navbar = () => {
             transition={{ duration: 0.3, delay: 0.5 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                size="lg"
-                className="bg-secondary hover:bg-secondary/90 text-navy font-bold shadow-strong rounded-full px-6"
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                Devis Gratuit
-              </Button>
+              <a href="/devis">
+                <Button
+                  size="lg"
+                  className="bg-secondary hover:bg-secondary/90 text-navy font-bold shadow-strong rounded-full px-6"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Devis Gratuit
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -156,13 +158,15 @@ const Navbar = () => {
                     closed: { opacity: 0, x: -20 },
                   }}
                 >
-                  <Button
-                    size="lg"
-                    className="bg-secondary hover:bg-secondary/90 text-navy font-bold w-full mt-4 rounded-full"
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Devis Gratuit
-                  </Button>
+                  <a href="/devis" onClick={() => setIsOpen(false)}>
+                    <Button
+                      size="lg"
+                      className="bg-secondary hover:bg-secondary/90 text-navy font-bold w-full mt-4 rounded-full"
+                    >
+                      <Phone className="mr-2 h-5 w-5" />
+                      Devis Gratuit
+                    </Button>
+                  </a>
                 </motion.div>
               </motion.div>
             </motion.div>

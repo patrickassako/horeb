@@ -22,6 +22,8 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
+import QuoteRequest from "./pages/QuoteRequest";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -38,6 +40,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/devis" element={<QuoteRequest />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/services/btp" element={<BTP />} />
