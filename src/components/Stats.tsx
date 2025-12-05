@@ -24,7 +24,7 @@ const StatItem = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <motion.div
-        className="text-5xl md:text-6xl font-bold text-primary mb-2"
+        className="text-5xl md:text-6xl font-bold text-secondary mb-2"
         whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
@@ -66,7 +66,7 @@ const Stats = () => {
 
       {/* Floating Orbs */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"
+        className="absolute top-20 left-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl"
         animate={{
           y: [0, 30, 0],
           x: [0, 20, 0],
@@ -78,7 +78,7 @@ const Stats = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"
+        className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"
         animate={{
           y: [0, -40, 0],
           x: [0, -30, 0],

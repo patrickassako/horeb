@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Wrench, CheckCircle, ArrowRight, Phone, Zap, Monitor, Wifi } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import heroImage from "@/assets/services-hero.jpg";
 import realisation1 from "@/assets/realisation-elec-1.jpg";
 import realisation2 from "@/assets/realisation-elec-2.jpg";
@@ -47,6 +48,10 @@ const ElectriciteInformatique = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Électricité & Informatique - Horeb Group Sarl</title>
+        <meta name="description" content="Services d'électricité et informatique au Cameroun : installation, maintenance, réseaux et développement web. Solutions technologiques complètes." />
+      </Helmet>
       <Navbar />
       <main className="pt-20">
         {/* Hero Section */}
@@ -64,7 +69,7 @@ const ElectriciteInformatique = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/90 to-navy-dark/85" />
           </motion.div>
-          
+
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -76,7 +81,7 @@ const ElectriciteInformatique = () => {
                 <ArrowRight className="h-5 w-5 rotate-180 mr-2" />
                 Retour à l'accueil
               </Link>
-              
+
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-primary/20 rounded-lg">
                   <Wrench className="h-12 w-12 text-primary" />
@@ -85,10 +90,10 @@ const ElectriciteInformatique = () => {
                   Électricité & Informatique
                 </h1>
               </div>
-              
+
               <p className="text-xl text-white/90 leading-relaxed">
-                Des installations électriques aux solutions informatiques avancées, 
-                Horeb Group Sarl vous accompagne dans tous vos projets technologiques. 
+                Des installations électriques aux solutions informatiques avancées,
+                Horeb Group Sarl vous accompagne dans tous vos projets technologiques.
                 Expertise, innovation et fiabilité pour votre entreprise.
               </p>
             </motion.div>
@@ -209,10 +214,10 @@ const ElectriciteInformatique = () => {
                   </h2>
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Installation, maintenance et dépannage de tous types de systèmes électriques 
+                  Installation, maintenance et dépannage de tous types de systèmes électriques
                   pour particuliers et professionnels.
                 </p>
-                
+
                 <div className="space-y-3">
                   {electricalServices.map((service, index) => (
                     <motion.div
@@ -245,10 +250,10 @@ const ElectriciteInformatique = () => {
                   </h2>
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Solutions informatiques complètes, du matériel aux développements web 
+                  Solutions informatiques complètes, du matériel aux développements web
                   et applications sur mesure.
                 </p>
-                
+
                 <div className="space-y-3">
                   {itServices.map((service, index) => (
                     <motion.div

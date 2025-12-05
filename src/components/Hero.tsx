@@ -96,11 +96,11 @@ const Hero = () => {
           const delay = (i * 0.4) % 8;
           const duration = 10 + Math.random() * 8;
           const xPos = 5 + Math.random() * 90;
-          
+
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-primary/20 backdrop-blur-sm border-2 border-primary/30 shadow-lg"
+              className="absolute rounded-full bg-secondary/20 backdrop-blur-sm border-2 border-secondary/30 shadow-lg"
               style={{
                 width: size,
                 height: size,
@@ -122,16 +122,16 @@ const Hero = () => {
             />
           );
         })}
-        
+
         {/* Floating particles */}
         {[...Array(30)].map((_, i) => {
           const delay = Math.random() * 5;
           const duration = 4 + Math.random() * 4;
-          
+
           return (
             <motion.div
               key={`particle-${i}`}
-              className="absolute w-2 h-2 bg-primary/40 rounded-full"
+              className="absolute w-2 h-2 bg-secondary/40 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -154,7 +154,7 @@ const Hero = () => {
       </div>
 
       {/* Content - Mobile Optimized */}
-      <motion.div 
+      <motion.div
         className="container mx-auto px-4 md:px-6 relative z-10"
         style={{ opacity }}
       >
@@ -166,29 +166,29 @@ const Hero = () => {
         >
           <motion.p
             variants={textVariants}
-            className="text-primary font-semibold mb-3 md:mb-4 tracking-wider uppercase text-xs md:text-sm"
+            className="text-secondary font-semibold mb-3 md:mb-4 tracking-wider uppercase text-xs md:text-sm"
           >
             Votre Partenaire de Confiance
           </motion.p>
-          
+
           <motion.h1
             variants={titleVariants}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight"
           >
             <span className="block">Horeb Group Sarl</span>
-            <span className="block text-primary mt-1 md:mt-2 text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
+            <span className="block text-secondary mt-1 md:mt-2 text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
               Bâtissons Ensemble Votre Avenir
             </span>
           </motion.h1>
-          
+
           <motion.p
             variants={textVariants}
-            className="text-base md:text-xl text-white/95 mb-6 md:mb-8 max-w-2xl leading-relaxed font-medium"
+            className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl leading-relaxed font-light tracking-wide"
           >
-            Expert camerounais en BTP, électricité et services généraux. 
-            Transformons ensemble vos projets en succès garantis.
+            L'excellence opérationnelle au service de vos ambitions.
+            Expertise confirmée en BTP, Électricité et Services Généraux au Cameroun.
           </motion.p>
-          
+
           <motion.div
             variants={containerVariants}
             className="flex flex-col sm:flex-row gap-3 md:gap-4"
@@ -196,7 +196,7 @@ const Hero = () => {
             <motion.div variants={buttonVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base shadow-strong transition-all group relative overflow-hidden"
+                className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base shadow-strong transition-all group relative overflow-hidden"
               >
                 <motion.span
                   className="absolute inset-0 bg-white/20"
@@ -210,7 +210,7 @@ const Hero = () => {
                 </span>
               </Button>
             </motion.div>
-            
+
             <motion.div variants={buttonVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
@@ -235,7 +235,7 @@ const Hero = () => {
 
       {/* Decorative Gradient */}
       <div className="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-background to-transparent z-10" />
-      
+
       {/* Scroll Indicator - Hidden on mobile */}
       <motion.div
         className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"

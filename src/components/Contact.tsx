@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,10 +31,66 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const { toast } = useToast();
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.from("contacts").insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.projectType, // Mapping projectType to subject
+        message: formData.message,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous recontacterons très prochainement.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        message: "",
+      });
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi du message.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <section className="py-20 bg-background" ref={ref}>
@@ -42,14 +101,14 @@ const Contact = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary font-semibold mb-3 tracking-wider uppercase text-sm">
+          <p className="text-secondary font-semibold mb-3 tracking-wider uppercase text-sm">
             Contactez-Nous
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             C'est Où Vous Devez Être
           </h2>
           <motion.div
-            className="w-24 h-1 bg-primary mx-auto"
+            className="w-24 h-1 bg-secondary mx-auto"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -64,7 +123,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Card className="p-8 border-border shadow-card">
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <motion.div
                     whileFocus={{ scale: 1.02 }}
@@ -74,8 +133,12 @@ const Contact = () => {
                       Nom complet
                     </label>
                     <Input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="Votre nom"
                       className="border-border focus:border-primary transition-colors"
+                      required
                     />
                   </motion.div>
                   <motion.div
@@ -86,9 +149,13 @@ const Contact = () => {
                       Email
                     </label>
                     <Input
+                      name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="votre@email.fr"
                       className="border-border focus:border-primary transition-colors"
+                      required
                     />
                   </motion.div>
                 </div>
@@ -97,8 +164,11 @@ const Contact = () => {
                     Téléphone
                   </label>
                   <Input
+                    name="phone"
                     type="tel"
-                    placeholder="+33 6 12 34 56 78"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+237 6..."
                     className="border-border focus:border-primary transition-colors"
                   />
                 </div>
@@ -107,6 +177,9 @@ const Contact = () => {
                     Type de projet
                   </label>
                   <Input
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
                     placeholder="Ex: Construction neuve, Rénovation..."
                     className="border-border focus:border-primary transition-colors"
                   />
@@ -116,9 +189,13 @@ const Contact = () => {
                     Message
                   </label>
                   <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Décrivez votre projet..."
                     rows={5}
-                    className="border-border focus:border-primary resize-none transition-colors"
+                    className="border-border focus:border-secondary transition-colors"
+                    required
                   />
                 </div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -126,8 +203,9 @@ const Contact = () => {
                     type="submit"
                     size="lg"
                     className="w-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-strong"
+                    disabled={loading}
                   >
-                    Envoyer le Message
+                    {loading ? "Envoi en cours..." : "Envoyer le Message"}
                   </Button>
                 </motion.div>
               </form>
@@ -146,8 +224,8 @@ const Contact = () => {
                 Parlons de Votre Projet
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Notre équipe dynamique composée de techniciens, ingénieurs et logisticiens 
-                est prête à réaliser vos projets avec rigueur, innovation et confiance. 
+                Notre équipe dynamique composée de techniciens, ingénieurs et logisticiens
+                est prête à réaliser vos projets avec rigueur, innovation et confiance.
                 Contactez-nous pour un devis personnalisé.
               </p>
             </div>
@@ -166,11 +244,11 @@ const Contact = () => {
                     whileHover={{ x: 5 }}
                   >
                     <motion.div
-                      className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary transition-colors"
+                      className="p-3 bg-secondary/10 rounded-lg group-hover:bg-secondary transition-colors"
                       whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <Icon className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
+                      <Icon className="h-6 w-6 text-secondary group-hover:text-navy transition-colors" />
                     </motion.div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">
@@ -221,7 +299,7 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
