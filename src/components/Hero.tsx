@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-background.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -194,40 +195,44 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-3 md:gap-4"
           >
             <motion.div variants={buttonVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                size="lg"
-                className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base shadow-strong transition-all group relative overflow-hidden"
-              >
-                <motion.span
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.5 }}
-                />
-                <span className="relative z-10 flex items-center justify-center">
-                  Découvrez Nos Expertises
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-2 transition-transform" />
-                </span>
-              </Button>
+              <Link to="/services">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base shadow-strong transition-all group relative overflow-hidden"
+                >
+                  <motion.span
+                    className="absolute inset-0 bg-white/20"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <span className="relative z-10 flex items-center justify-center">
+                    Découvrez Nos Expertises
+                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-2 transition-transform" />
+                  </span>
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div variants={buttonVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-2 border-white bg-transparent text-white hover:bg-white hover:text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base transition-all relative overflow-hidden group backdrop-blur-sm"
-              >
-                <motion.span
-                  className="absolute inset-0 bg-white"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <span className="relative z-10 flex items-center justify-center">
-                  <Phone className="mr-2 h-4 w-4 md:h-5 md:w-5 group-hover:rotate-12 transition-transform" />
-                  Devis Gratuit
-                </span>
-              </Button>
+              <Link to="/devis">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border-2 border-white bg-transparent text-white hover:bg-white hover:text-navy font-semibold px-6 md:px-8 py-5 md:py-6 text-sm md:text-base transition-all relative overflow-hidden group backdrop-blur-sm"
+                >
+                  <motion.span
+                    className="absolute inset-0 bg-white"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative z-10 flex items-center justify-center">
+                    <Phone className="mr-2 h-4 w-4 md:h-5 md:w-5 group-hover:rotate-12 transition-transform" />
+                    Devis Gratuit
+                  </span>
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </motion.div>
